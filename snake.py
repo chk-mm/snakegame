@@ -1,12 +1,11 @@
 from turtle import Turtle
 
+positions = [(0, 0), (20, 0), (40, 0)]
 
-positions = [(0,0),(20,0),(40,0)]
 
 class Snake:
-    segments = []
-
-    def __int__(self):
+    def __init__(self):
+        self.segments = []
         for pos in positions:
             new_turtle = Turtle()
             new_turtle.shape('square')
@@ -14,10 +13,19 @@ class Snake:
             new_turtle.pu()
             new_turtle.goto(pos)
             new_turtle.speed('normal')
-            # new_turtle.speed(1)
             self.segments.append(new_turtle)
+        self.head = self.segments[-1]
 
     def move(self):
-        for segment in self.segments:
-            segment.speed(1)
-            segment.forward(20)
+        for i in range(0,len(self.segments)-1):
+            current = self.segments[i]
+            next_one = self.segments[i+1]
+            current.goto(next_one.pos())
+        self.head.forward(20)
+
+
+    def go_up(self):
+        for i in range(0,len(self.segments)-1):
+            self.segments[i].setheading(90)
+            # self.segments[i].forward(20)
+            self.move()
