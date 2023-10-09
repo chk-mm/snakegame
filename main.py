@@ -13,7 +13,6 @@ snake = Snake()
 
 
 screen.addshape('mango.gif')
-# tr.shape('mango.gif')
 food = Fruits('mango.gif')
 
 game_is_on = True
