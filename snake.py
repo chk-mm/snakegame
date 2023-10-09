@@ -73,8 +73,8 @@ class Snake:
             new_turtle.goto(self.segments[0].pos())
             self.segments.insert(0,new_turtle)
             self.head = self.segments[-1]
-            self.write_score(10)
             food.re_position()
+            self.write_score(10)
 
     def distance_self(self):
         for segment in self.segments:
@@ -82,7 +82,6 @@ class Snake:
                 self.is_dead = 1
                 print(self.is_dead)
                 self.write_score(-1)
-            # print(f'head:{self.head.pos()},body:{segment.pos()},distance{self.head.distance(segment.pos())}')
 
     def distance_wall(self):
         if (self.head.xcor() > 290 or
