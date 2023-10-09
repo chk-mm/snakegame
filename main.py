@@ -13,7 +13,6 @@ snake = Snake()
 
 game_is_on = True
 while game_is_on:
-    screen.listen()
     snake.move()
     time.sleep(1)
     screen.update()
