@@ -33,13 +33,13 @@ class Snake:
 
     def go_down(self):
         if self.head.heading() != UP:
-            self.head.setheading(270)
+            self.head.setheading(BOTTOM)
 
     def go_right(self):
         if self.head.heading() != LEFT:
-            self.head.setheading(360)
+            self.head.setheading(RIGHT)
 
     def go_left(self):
         if self.head.heading() != RIGHT:
-            self.head.setheading(180)
+            self.head.setheading(LEFT)
 
