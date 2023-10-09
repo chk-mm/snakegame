@@ -7,6 +7,7 @@ screen = Screen()
 screen.bgcolor('black')
 screen.setup(width=600,height=600)
 segments = []
+screen.tracer(0)
 positions = [(0,0),(20,0),(40,0)]
 for pos in positions:
     new_turtle = Turtle()
@@ -21,6 +22,7 @@ for pos in positions:
 game_is_on = True
 while game_is_on:
     time.sleep(1)
+    screen.update()
     for i in segments:
         i.speed(1)
         i.forward(step)
