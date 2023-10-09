@@ -1,3 +1,4 @@
+import time
 from turtle import Screen, Turtle
 
 step = 20
@@ -13,13 +14,21 @@ for pos in positions:
     new_turtle.color('white')
     new_turtle.pu()
     new_turtle.goto(pos)
+    new_turtle.speed('normal')
+    # new_turtle.speed(1)
     segments.append(new_turtle)
 
-while True:
+game_is_on = True
+while game_is_on:
+    time.sleep(1)
     for i in segments:
-        # i.pu()
+        i.speed(1)
         i.forward(step)
-    step += 20
+        if abs(i.xcor()) > 200:
+            i.setheading(270)
+        if abs(i.ycor()) >200 :
+            i.setheading(0)
+        print(i,i.xcor(),i.ycor())
 
 
 screen.exitonclick()
