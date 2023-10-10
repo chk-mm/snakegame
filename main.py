@@ -32,15 +32,15 @@ food_choice = random.choice(listofdirectory)
 food = Food(food_choice)
 food.food_pos()
 
+screen.onkeypress(fun=snake.go_up, key="Up")
+screen.onkeypress(fun=snake.go_down, key="Down")
+screen.onkeypress(fun=snake.go_right, key="Right")
+screen.onkeypress(fun=snake.go_left, key="Left")
 
 
 game_is_on = True
 while snake.is_dead == 0:
     snake.move()
-    screen.onkeypress(fun=snake.go_up, key="Up")
-    screen.onkeypress(fun=snake.go_down, key="Down")
-    screen.onkeypress(fun=snake.go_right, key="Right")
-    screen.onkeypress(fun=snake.go_left, key="Left")
     snake.distance_food(food,score)
     snake.distance_self(score)
     snake.distance_wall(score)
