@@ -4,6 +4,12 @@ from turtle import Screen,Turtle
 from snake import Snake
 from Food import Food
 from score import Score
+import os
+
+path = "img"
+dir_list = os.listdir(path)
+
+
 
 screen = Screen()
 screen.bgcolor('black')
@@ -16,11 +22,13 @@ snake = Snake()
 
 score = Score()
 
-screen.addshape('img/mango.gif')
-screen.addshape('img/apple.gif')
+listofdirectory = []
+for img in dir_list:
+    screen.addshape('img/'+img)
+    listofdirectory.append('img/'+img)
 
 
-food_choice = random.choice(['img/mango.gif','img/apple.gif'])
+food_choice = random.choice(listofdirectory)
 food = Food(food_choice)
 food.food_pos()
 
