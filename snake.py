@@ -72,6 +72,5 @@ class Snake:
         self.head.ycor() > 290 or
         self.head.ycor() < -290):
             self.is_dead = 1
-            print(self.is_dead)
             scores.write_score(-1)
 
