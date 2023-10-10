@@ -64,7 +64,6 @@ class Snake:
         for segment in self.segments:
             if self.head.pos() == segment.pos() and segment != self.head:
                 self.is_dead = 1
-                print(self.is_dead)
                 scores.write_score(-1)
 
     def distance_wall(self,scores: Score):
