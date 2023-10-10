@@ -1,7 +1,9 @@
+import random
 import time
 from turtle import Screen,Turtle
 from snake import Snake
-from fruits import Fruits
+from Food import Food
+from score import Score
 
 screen = Screen()
 screen.bgcolor('black')
@@ -12,8 +14,17 @@ screen.listen()
 snake = Snake()
 
 
-screen.addshape('mango.gif')
-food = Fruits('mango.gif')
+score = Score()
+
+screen.addshape('img/mango.gif')
+screen.addshape('img/apple.gif')
+
+
+food_choice = random.choice(['img/mango.gif','img/apple.gif'])
+food = Food(food_choice)
+food.food_pos()
+
+
 
 game_is_on = True
 while snake.is_dead == 0:
@@ -22,9 +33,9 @@ while snake.is_dead == 0:
     screen.onkeypress(fun=snake.go_down, key="Down")
     screen.onkeypress(fun=snake.go_right, key="Right")
     screen.onkeypress(fun=snake.go_left, key="Left")
-    snake.distance_food(food)
-    snake.distance_self()
-    snake.distance_wall()
+    snake.distance_food(food,score)
+    snake.distance_self(score)
+    snake.distance_wall(score)
     time.sleep(1)
     screen.update()
 
