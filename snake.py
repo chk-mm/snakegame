@@ -62,7 +62,7 @@ class Snake:
 
     def distance_self(self,scores: Score):
         for segment in self.segments:
-            if self.head.pos() == segment.pos() and segment != self.head:
+            if segment != self.head and self.head.pos() == segment.pos():
                 self.is_dead = 1
                 scores.write_score(-1)
 
